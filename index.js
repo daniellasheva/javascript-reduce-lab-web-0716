@@ -16,3 +16,24 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+  var totalBatteries =
+  batteryBatches.reduce(function(oneVal, twoVal){
+    return oneVal+twoVal
+  },0)
+
+  var wordCountMap =
+  monologueLines.reduce(callback, {})  //set the initial value to an object
+
+  function callback(object, line){
+    var wordCount= line.split(' ').length
+    //loop through each line, get its wordCount
+    //check to see if this wordcount exists
+    if (object[wordCount]){
+      object[wordCount]+=1
+    }
+    else {
+      object[wordCount]=1
+    }
+    return object
+  }
